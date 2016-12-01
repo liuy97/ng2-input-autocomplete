@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "lib": [ "es2015", "dom" ],
+    "noImplicitAny": true,
+    "declaration": true,
+    "outDir": "./dist",
+    "suppressImplicitAnyIndexErrors": true
+  },
+  "files": [
+    "app/autocomplete/index.ts"
+  ],
+  "typeRoots": [
+    "./node_modules/@types",
+    "./node_modules"
+  ],
+  "types": [
+    "node"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
+}
