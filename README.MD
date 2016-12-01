@@ -1,11 +1,11 @@
-# angular2-autocomplete
+# ng2-input-autocomplete
 
 ## Installation
 
 To install this library, run:
 
 ```bash
-$ npm install angular2-autocomplete --save
+$ npm install ng2-input-autocomplete --save
 ```
 
 ## Consuming your library
@@ -13,7 +13,7 @@ $ npm install angular2-autocomplete --save
 Once you have published your library to npm, you can import your library in any Angular application by running:
 
 ```bash
-$ npm install angular2-autocomplete
+$ npm install ng2-input-autocomplete
 ```
 
 and then from your Angular `AppModule`:
