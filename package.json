@@ -1,6 +1,6 @@
 {
   "name": "ng2-input-autocomplete",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "scripts": {
     "start": "tsc && concurrently \"tsc -w\" \"lite-server\" ",
     "e2e": "tsc && concurrently \"http-server -s\" \"protractor protractor.config.js\" --kill-others --success first",
