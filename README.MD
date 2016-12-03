@@ -1,5 +1,9 @@
 # ng2-input-autocomplete
 
+[![npm version](https://badge.fury.io/js/ng2-input-autocomplete.svg)](https://badge.fury.io/js/ng2-input-autocomplete)
+[![Angular Style Guide](https://mgechev.github.io/angular2-style-guide/images/badge.svg)](https://angular.io/styleguide)
+[![Build Status](https://travis-ci.org/liuy97/ng2-input-autocomplete.svg?branch=master)](https://travis-ci.org/liuy97/ng2-input-autocomplete)
+
 ## Installation
 
 To install this library, run:
