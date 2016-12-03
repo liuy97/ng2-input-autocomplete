@@ -8,6 +8,7 @@ systemjs.*.js
 tsconfig.*json
 tslint.json
 ng2-input-autocomplete.ts
+ng2-input-autocomplete.ngfactory.ts
 .ng2-config.js
 protractor.conf.js
 spec-bundle.js

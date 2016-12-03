@@ -8,7 +8,7 @@ export class WikipediaService {
 
   search (term: string) {
 
-    let wikiUrl = 'http://en.wikipedia.org/w/api.php';
+    let wikiUrl = 'https://en.wikipedia.org/w/api.php';
 
     let params = new URLSearchParams();
     params.set('search', term); // the user's search value

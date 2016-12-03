@@ -5,7 +5,7 @@
     "flow.compile": "npm run flow.compile:common && npm run flow.compile:system",
     "flow.compile:common": "ngc -p tsconfig.publish.json",
     "flow.compile:system": "node ./.config/bundle-system.js",
-    "flow.clean": "del-cli bundles coverage app-build \"components/**/*.+(js|d.ts|js.map)\" dist \"ng2-input-autocomplete.+(js|d.ts|js.map)\"",
+    "flow.clean": "del-cli bundles coverage app-build dist \"ng2-input-autocomplete.+(js|d.ts|js.map|ngfactory.ts)\"",
     "flow.deploy:gh-pages": "npm run flow.build:prod && gh-pages -d app-build",
     "flow.changelog": "conventional-changelog -i CHANGELOG.md -s -p angular -v",
     "flow.github-release": "conventional-github-releaser -p angular",
