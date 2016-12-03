@@ -3,11 +3,23 @@
     "target": "es5",
     "module": "commonjs",
     "moduleResolution": "node",
-    "sourceMap": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "lib": [ "es2015", "dom" ],
+    "sourceMap": true,
+    "noEmitHelpers": true,
     "noImplicitAny": true,
-    "suppressImplicitAnyIndexErrors": true
-  }
+    "declaration": false,
+    "skipLibCheck": true,
+    "stripInternal": true,
+    "lib": [ "dom", "es6" ],
+    "types": [ "jasmine", "node", "webpack" ]
+  },
+  "exclude": [
+    "node_modules",
+    "bundles",
+    "dist"
+  ],
+  "files": [
+    "./ng2-input-autocomplete.ts"
+  ]
 }

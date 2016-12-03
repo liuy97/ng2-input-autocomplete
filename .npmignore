@@ -2,11 +2,19 @@
 node_modules/*
 npm-debug.log
 app
-index.html
+app-build
 karma*.js
 systemjs.*.js
 tsconfig.*json
 tslint.json
+ng2-input-autocomplete.ts
+.ng2-config.js
+protractor.conf.js
+spec-bundle.js
+webpack.config.js
+.config
+.config/*
+.travis.yml
 
 # DO NOT IGNORE TYPESCRIPT FILES FOR NPM
 # TypeScript

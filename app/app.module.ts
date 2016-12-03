@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule, JsonpModule }  from '@angular/http';
 
 import { AppComponent }  from './app.component';
-import { AutocompleteModule } from './autocomplete/index';
+import { AutocompleteModule } from './autocomplete/ng2-input-autocomplete';
 
 @NgModule({
   imports:      [ BrowserModule, AutocompleteModule.forRoot(), FormsModule,

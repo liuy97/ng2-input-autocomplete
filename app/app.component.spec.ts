@@ -3,7 +3,7 @@ import { AppComponent } from './app.component';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By }           from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
-import { AutocompleteModule } from './autocomplete/index';
+import { AutocompleteModule } from './autocomplete/ng2-input-autocomplete';
 import { FormsModule } from '@angular/forms';
 import { HttpModule, JsonpModule }  from '@angular/http';
 

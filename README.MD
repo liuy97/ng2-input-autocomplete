@@ -8,13 +8,7 @@ To install this library, run:
 $ npm install ng2-input-autocomplete --save
 ```
 
-## Consuming your library
-
-Once you have published your library to npm, you can import your library in any Angular application by running:
-
-```bash
-$ npm install ng2-input-autocomplete
-```
+## Usage
 
 and then from your Angular `AppModule`:
 
@@ -42,11 +36,14 @@ export class AppModule { }
 ```
 add mapping in systemjs config 
 
-'ng2-input-autocomplete': 'node_modules/ng2-input-autocomplete/dist/index.js',
+```typescript
+'ng2-input-autocomplete': 'node_modules/ng2-input-autocomplete/bundles/ng2-input-autocomplete.js',
+```
 
 Once your library is imported, you can use its components and directives:
 
 Three input elements: **config**, **items**, **ngModel**
+
 config supports two properties: **placeholder** and  **sourceField** which is used to search.
 
 Two output events: **selectEvent** (when a item is selected) and **inputChangedEvent** (when users input)
@@ -106,7 +103,7 @@ export class AppComponent  {
 To generate all `*.js`, `*.js.map` and `*.d.ts` files:
 
 ```bash
-$ npm run tsc
+$ npm run flow.compile
 ```
 
 To lint all `*.ts` files:

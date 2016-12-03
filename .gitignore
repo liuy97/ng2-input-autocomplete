@@ -2,9 +2,15 @@
 node_modules/*
 npm-debug.log
 dist
+coverage
+app-build
+bundles
+ng2-input-autocomplete.js
+ng2-input-autocomplete.d.ts
+ng2-input-autocomplete.metadata.json
+ng2-input-autocomplete.ngfactory.ts
 
 # TypeScript
-*.js
 *.map
 *.d.ts
 
