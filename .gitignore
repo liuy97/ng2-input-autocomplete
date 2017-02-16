@@ -3,6 +3,8 @@ node_modules/*
 npm-debug.log
 dist
 coverage
+coverage_js
+ng2-input-autocomplete.ngsummary.json
 app-build
 bundles
 ng2-input-autocomplete.js
