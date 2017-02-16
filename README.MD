@@ -106,10 +106,8 @@ export class AppComponent  {
 
 ## Development
 
-To generate all `*.js`, `*.js.map` and `*.d.ts` files:
-
 ```bash
-$ npm run flow.compile
+$ npm run test
 ```
 
 To lint all `*.ts` files:

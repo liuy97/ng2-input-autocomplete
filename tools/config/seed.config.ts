@@ -144,7 +144,7 @@ export class SeedConfig {
    * `index.html`.
    * @type {string}
    */
-  APP_TITLE = 'Welcome to angular-seed!';
+  APP_TITLE = 'Welcome to angular2 autocomplete demo!';
 
   /**
    * Tracking ID.
