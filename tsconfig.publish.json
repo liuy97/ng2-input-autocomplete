@@ -11,14 +11,14 @@
     "declaration": true,
     "skipLibCheck": true,
     "stripInternal": true,
-    "outDir": "./bundles",
+    "outDir": "./dist/ng2-input-autocomplete/bundles",
     "lib": ["dom", "es6"],
-    "types": [ "jasmine", "node", "webpack" ]
+    "types": [ "jasmine", "node" ]
   },
   "exclude": [
     "node_modules"
   ],
   "files": [
-    "./ng2-input-autocomplete.ts"
+    "./src/client/app/library/ng2-input-autocomplete.ts"
   ]
 }

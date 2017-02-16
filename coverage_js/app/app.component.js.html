@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for app/app.component.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../index.html">all files</a> / <a href="index.html">app/</a> app.component.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">90% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>18/20</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">62.07% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>18/29</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">75% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>3/4</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">93.75% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>15/16</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">"use strict";
+var __decorate = (this &amp;&amp; this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c &lt; 3 ? target : <span class="branch-1 cbranch-no" title="branch not covered" >desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,</span> d;
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (typeof Reflect === "object" &amp;&amp; typeof Reflect.decorate === "function") <span class="cstat-no" title="statement not covered" >r = Reflect.decorate(decorators, target, key, desc);</span>
+    else for (var i = decorators.length - 1; i &gt;= 0; i--) <span class="missing-if-branch" title="else path not taken" >E</span>if (d = decorators[i]) r = (c &lt; 3 ? d(r) : <span class="branch-1 cbranch-no" title="branch not covered" >c &gt; 3 ? d(target, key, r) : d(target, key))</span> || r;
+    return c &gt; 3 &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >r </span>&amp;&amp; <span class="branch-2 cbranch-no" title="branch not covered" >Object.defineProperty(target, key, r),</span> r;
+};
+var __metadata = (this &amp;&amp; this.__metadata) || function (k, v) {
+    <span class="missing-if-branch" title="else path not taken" >E</span>if (typeof Reflect === "object" &amp;&amp; typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var core_1 = require('@angular/core');
+var env_config_1 = require('./shared/config/env.config');
+require('./operators');
+var AppComponent = (function () {
+<span class="fstat-no" title="function not covered" >    function AppComponent() {</span>
+<span class="cstat-no" title="statement not covered" >        console.log('Environment config', env_config_1.Config);</span>
+    }
+    AppComponent = __decorate([
+        core_1.Component({
+            moduleId: module.id,
+            selector: 'sd-app',
+            templateUrl: 'app.component.html',
+        }), 
+        __metadata('design:paramtypes', [])
+    ], AppComponent);
+    return AppComponent;
+}());
+exports.AppComponent = AppComponent;
+&nbsp;
+//# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImFwcC9hcHAuY29tcG9uZW50LnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7QUFBQSxxQkFBMEIsZUFBZSxDQUFDLENBQUE7QUFDMUMsMkJBQXVCLDRCQUE0QixDQUFDLENBQUE7QUFDcEQsUUFBTyxhQUFhLENBQUMsQ0FBQTtBQVVyQjtJQUNFO1FBQ0UsT0FBTyxDQUFDLEdBQUcsQ0FBQyxvQkFBb0IsRUFBRSxtQkFBTSxDQUFDLENBQUM7SUFDNUMsQ0FBQztJQVJIO1FBQUMsZ0JBQVMsQ0FBQztZQUNULFFBQVEsRUFBRSxNQUFNLENBQUMsRUFBRTtZQUNuQixRQUFRLEVBQUUsUUFBUTtZQUNsQixXQUFXLEVBQUUsb0JBQW9CO1NBQ2xDLENBQUM7O29CQUFBO0lBS0YsbUJBQUM7QUFBRCxDQUpBLEFBSUMsSUFBQTtBQUpZLG9CQUFZLGVBSXhCLENBQUEiLCJmaWxlIjoiYXBwL2FwcC5jb21wb25lbnQuanMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyBDb21wb25lbnQgfSBmcm9tICdAYW5ndWxhci9jb3JlJztcbmltcG9ydCB7IENvbmZpZyB9IGZyb20gJy4vc2hhcmVkL2NvbmZpZy9lbnYuY29uZmlnJztcbmltcG9ydCAnLi9vcGVyYXRvcnMnO1xuXG4vKipcbiAqIFRoaXMgY2xhc3MgcmVwcmVzZW50cyB0aGUgbWFpbiBhcHBsaWNhdGlvbiBjb21wb25lbnQuXG4gKi9cbkBDb21wb25lbnQoe1xuICBtb2R1bGVJZDogbW9kdWxlLmlkLFxuICBzZWxlY3RvcjogJ3NkLWFwcCcsXG4gIHRlbXBsYXRlVXJsOiAnYXBwLmNvbXBvbmVudC5odG1sJyxcbn0pXG5leHBvcnQgY2xhc3MgQXBwQ29tcG9uZW50IHtcbiAgY29uc3RydWN0b3IoKSB7XG4gICAgY29uc29sZS5sb2coJ0Vudmlyb25tZW50IGNvbmZpZycsIENvbmZpZyk7XG4gIH1cbn1cbiJdfQ==
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Feb 16 2017 10:21:00 GMT+0100 (CET)
+</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>
