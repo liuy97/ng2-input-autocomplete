@@ -14,7 +14,7 @@ ng2-input-autocomplete.ngfactory.ts
 
 # TypeScript
 *.map
-*.d.ts
+#*.d.ts
 
 # JetBrains
 .idea
