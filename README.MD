@@ -110,12 +110,6 @@ export class AppComponent  {
 $ npm run test
 ```
 
-To lint all `*.ts` files:
-
-```bash
-$ npm run lint
-```
-
 ## License
 
 MIT © [liuy97](liuy97@gmail.com)

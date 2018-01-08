@@ -1,5 +1,9 @@
 {
-  "extends": "./tools/config/seed.tslint.json",
+  "extends": "tslint-config-mwl",
   "rules": {
+    "directive-selector": [true, "attribute", "", "camelCase"],
+    "component-selector": [true, "element", "ng2", "kebab-case"],
+    "pipe-naming": [true, "camelCase", "ng2"],
+    "no-inferrable-types": false
   }
 }
