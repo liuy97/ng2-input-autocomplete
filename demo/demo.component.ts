@@ -4,25 +4,28 @@ import { WikipediaService } from './shared/wikipedia.service';
 @Component({
   selector: 'ng2-demo-app',
   template: `<div>
-  <h1>{{name}}</h1>
-  <div>
-    <h2>selected: {{selectedItem.toString()}}</h2>
-  </div>
-  <div>
-    <h2>inputChanged: {{inputChanged.toString()}}</h2>
-  </div>
-  <h2>String:</h2>
-  <div>
-    <input autocomplete [items]="items" (inputChangedEvent)="onInputChangedEvent($event)" (selectEvent)="onSelect($event)">
-  </div>
-  <h2>Objects:</h2>
-  <div>
-    <input autocomplete [config]="config2" [items]="items2" (inputChangedEvent)="onInputChangedEvent($event)" (selectEvent)="onSelect($event)">
-  </div>
-  <h2>Wiki:</h2>
-  <div>
-    <input autocomplete [items]="wikiItems" (inputChangedEvent)="search($event)" (selectEvent)="onSelect($event)">
-  </div>
+    <h1>{{name}}</h1>
+    <div>
+      <h2>selected: {{selectedItem.toString()}}</h2>
+    </div>
+    <div>
+      <h2>inputChanged: {{inputChanged.toString()}}</h2>
+    </div>
+    <h2>String:</h2>
+    <form autocomplete="on">
+      <div><input></div>
+      <div>
+        <input autocomplete [items]="items" (inputChangedEvent)="onInputChangedEvent($event)" (selectEvent)="onSelect($event)">
+      </div>
+      <h2>Objects:</h2>
+      <div>
+        <input autocomplete [config]="config2" [items]="items2" (inputChangedEvent)="onInputChangedEvent($event)" (selectEvent)="onSelect($event)">
+      </div>
+      <h2>Wiki:</h2>
+      <div>
+        <input autocomplete [items]="wikiItems" (inputChangedEvent)="search($event)" (selectEvent)="onSelect($event)">
+      </div>
+    </form>
   </div>`
 })
 export class DemoComponent {

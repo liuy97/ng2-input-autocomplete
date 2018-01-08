@@ -4,6 +4,7 @@
     "directive-selector": [true, "attribute", "", "camelCase"],
     "component-selector": [true, "element", "ng2", "kebab-case"],
     "pipe-naming": [true, "camelCase", "ng2"],
+    "max-classes-per-file": false,
     "no-inferrable-types": false
   }
 }

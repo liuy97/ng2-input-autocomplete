@@ -1,7 +1,6 @@
 /*
   MIT LICENSE @liuy97
 */
-/* tslint:disable */
 import {
   Component,
   ComponentFactoryResolver,
@@ -34,7 +33,7 @@ import { FormsModule } from '@angular/forms';
       (focus)="showAutoComplete = true;"
       [value]="value"
       (keyup)="enterText($event)">
-    <ul *ngIf="showAutoComplete && candidates.length > 0">
+    <ul *ngIf="showAutoComplete && candidates && candidates.length > 0">
       <li *ngFor="let candidate of candidates; let idx = index"
         [ngClass]="{ active: (idx === selectedIndex) }"
         (mouseover)="selectedIndex = idx;"
@@ -101,9 +100,9 @@ export class AutocompleteComponent implements OnInit, OnChanges {
 
   ngOnInit() {
     this.placeholder = 'autocomplete';
-    this.inputElement = <HTMLInputElement>this.thisElement.querySelector(
+    this.inputElement = this.thisElement.querySelector(
       'input'
-    );
+    ) as HTMLInputElement;
 
     if (!this.isNull(this.config)) {
       if (!this.isNull(this.config.placeholder)) {
@@ -122,7 +121,7 @@ export class AutocompleteComponent implements OnInit, OnChanges {
   }
 
   enterText(event: any) {
-    let total = this.candidates.length;
+    const total = this.candidates.length;
     switch (event.keyCode) {
       case 27:
         this.showAutoComplete = false;
@@ -153,10 +152,10 @@ export class AutocompleteComponent implements OnInit, OnChanges {
   }
 
   filterItems(search: string) {
-    let field = this.sourceField;
-    let filterItem = this.filterItem;
+    const field = this.sourceField;
+    const filterItem = this.filterItem;
     if (this.items) {
-      this.candidates = this.items.filter(function(item) {
+      this.candidates = this.items.filter(item => {
         return filterItem(item, field, search);
       });
       this.buildLabels();
@@ -192,8 +191,8 @@ export class AutocompleteComponent implements OnInit, OnChanges {
   }
 
   private buildLabels() {
-    let field = this.sourceField;
-    let getFieldValue = this.getFieldValue;
+    const field = this.sourceField;
+    const getFieldValue = this.getFieldValue;
     this.candiatesLabels = this.candidates.map((e: any) =>
       getFieldValue(e, field)
     );
@@ -233,7 +232,7 @@ export class AutocompleteComponent implements OnInit, OnChanges {
 export class AutocompleteDirective implements OnInit, OnDestroy, OnChanges {
   @Input() config: any;
   @Input() items: any;
-  @Input() ngModel: String;
+  @Input() ngModel: string;
   @Output() ngModelChange = new EventEmitter();
   @Output() inputChangedEvent = new EventEmitter();
   @Output() selectEvent = new EventEmitter();
@@ -252,6 +251,9 @@ export class AutocompleteDirective implements OnInit, OnDestroy, OnChanges {
   }
 
   ngOnInit() {
+    if (this.thisElement.tagName.toLowerCase() === 'form') {
+      return;
+    }
     this.createDiv();
   }
 
@@ -265,17 +267,19 @@ export class AutocompleteDirective implements OnInit, OnDestroy, OnChanges {
 
   ngOnChanges(changes: { [propKey: string]: SimpleChange }) {
     if (changes['items'] && this.componentRef) {
-      let component = this.componentRef.instance;
+      const component = this.componentRef.instance;
       component.items = changes['items'].currentValue;
       component.filterItems(component.value);
     }
   }
 
-  @HostListener('click')
-  @HostListener('focus')
-  showAutocomplete() {
+  @HostListener('click', ['$event.target'])
+  @HostListener('focus', ['$event.target'])
+  showAutocomplete(event: any) {
     this.hideAutocomplete();
-    this.createAutocomplete();
+    if (event === this.thisElement) {
+      this.createAutocomplete();
+    }
   }
 
   hideAutocomplete = (event?: any): void => {
@@ -299,14 +303,14 @@ export class AutocompleteDirective implements OnInit, OnDestroy, OnChanges {
     if (val !== this.ngModel) {
       this.ngModelChange.emit(val);
     }
-    let component = this.componentRef.instance;
+    const component = this.componentRef.instance;
     component.filterItems(val);
     this.inputChangedEvent.emit(val);
   };
 
   onSelect = (item: any) => {
-    let component = this.componentRef.instance;
-    let val = component.value;
+    const component = this.componentRef.instance;
+    const val = component.value;
     if (val !== this.ngModel) {
       this.ngModelChange.emit(val);
     }
@@ -318,7 +322,7 @@ export class AutocompleteDirective implements OnInit, OnDestroy, OnChanges {
   };
 
   private createDiv() {
-    let element = document.createElement('div');
+    const element = document.createElement('div');
     element.style.display = 'inline-block';
     element.style.position = 'relative';
     this.thisElement.parentElement.insertBefore(
@@ -330,20 +334,22 @@ export class AutocompleteDirective implements OnInit, OnDestroy, OnChanges {
   }
 
   private createAutocomplete() {
-    let factory = this.resolver.resolveComponentFactory(AutocompleteComponent);
+    const factory = this.resolver.resolveComponentFactory(
+      AutocompleteComponent
+    );
     this.componentRef = this.viewContainerRef.createComponent(factory);
-    let component = this.componentRef.instance;
+    const component = this.componentRef.instance;
     component.config = this.config;
     component.items = this.items;
     component.selectEvent.subscribe(this.onSelect);
     component.inputChangedEvent.subscribe(this.onInputChanged);
     this.autocompleteElement = this.componentRef.location.nativeElement;
     this.autocompleteElement.style.display = 'none';
-    this.inputElement = <HTMLInputElement>this.thisElement;
+    this.inputElement = this.thisElement as HTMLInputElement;
     if (this.thisElement.tagName !== 'INPUT' && this.autocompleteElement) {
-      this.inputElement = <HTMLInputElement>this.thisElement.querySelector(
+      this.inputElement = this.thisElement.querySelector(
         'input'
-      );
+      ) as HTMLInputElement;
       this.inputElement.parentElement.insertBefore(
         this.autocompleteElement,
         this.inputElement.nextSibling
@@ -353,8 +359,8 @@ export class AutocompleteDirective implements OnInit, OnDestroy, OnChanges {
     this.tabIndex = this.inputElement['tabIndex'];
     this.inputElement['tabIndex'] = -100;
     if (this.componentRef) {
-      let rect = this.thisElement.getBoundingClientRect();
-      let style = this.autocompleteElement.style;
+      const rect = this.thisElement.getBoundingClientRect();
+      const style = this.autocompleteElement.style;
       style.width = rect.width + 'px';
       style.position = 'absolute';
       style.zIndex = '1';

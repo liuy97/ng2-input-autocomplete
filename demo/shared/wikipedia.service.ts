@@ -7,9 +7,9 @@ export class WikipediaService {
   constructor(private jsonp: Jsonp) {}
 
   search(term: string) {
-    let wikiUrl = 'https://en.wikipedia.org/w/api.php';
+    const wikiUrl = 'https://en.wikipedia.org/w/api.php';
 
-    let params = new URLSearchParams();
+    const params = new URLSearchParams();
     params.set('search', term); // the user's search value
     params.set('action', 'opensearch');
     params.set('format', 'json');
@@ -18,7 +18,7 @@ export class WikipediaService {
     // TODO: Add error handling
     return this.jsonp
       .get(wikiUrl, { search: params })
-      .map(response => <string[]>response.json()[1]);
+      .map(response => response.json()[1] as string[]);
   }
 }
 
