@@ -4,6 +4,9 @@
 [![Angular Style Guide](https://mgechev.github.io/angular2-style-guide/images/badge.svg)](https://angular.io/styleguide)
 [![Build Status](https://travis-ci.org/liuy97/ng2-input-autocomplete.svg?branch=master)](https://travis-ci.org/liuy97/ng2-input-autocomplete)
 
+#### Quick links
+[StackBlitz Template](https://stackblitz.com/edit/ng2-input-autocomplete)
+
 Angular2 input autocomplete
 
 ## Installation
@@ -43,7 +46,7 @@ export class AppModule { }
 add mapping in systemjs config 
 
 ```typescript
-'ng2-input-autocomplete': 'node_modules/ng2-input-autocomplete/bundles/ng2-input-autocomplete.js',
+'ng2-input-autocomplete': 'node_modules/ng2-input-autocomplete/bundles/ng2-input-autocompleteModule.umd.js',
 ```
 
 Once your library is imported, you can use its components and directives:
