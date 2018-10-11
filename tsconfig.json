@@ -1,22 +1,29 @@
 {
+  "compileOnSave": false,
   "compilerOptions": {
-    "target": "ES5",
-    "module": "commonjs",
-    "moduleResolution": "node",
+    "baseUrl": "./",
+    "outDir": "./dist/out-tsc",
     "sourceMap": true,
+    "declaration": false,
+    "module": "es2015",
+    "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "lib": ["es2015", "dom"],
-    "strict": false,
-    "skipLibCheck": true
-  },
-  "include": [
-    "src",
-    "test",
-    "demo",
-    "custom-typings.d.ts"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+    "target": "es5",
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "lib": [
+      "es2017",
+      "dom"
+    ],
+    "paths": {
+      "autocomplete": [
+        "dist/autocomplete"
+      ],
+      "autocomplete/*": [
+        "dist/autocomplete/*"
+      ]
+    }
+  }
 }
