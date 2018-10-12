@@ -1,9 +1,11 @@
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { AutocompleteModule } from '../../projects/autocomplete/src/public_api';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [AutocompleteModule.forRoot()],
       declarations: [
         AppComponent
       ],

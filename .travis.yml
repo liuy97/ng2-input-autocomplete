@@ -1,9 +1,13 @@
 language: node_js
+node_js: stable
 
-node_js:
-- '8'
+sudo: false
 
-script: npm test
+os:
+  - linux
+
+before_script:
+  - npm install
 
 notifications:
   email: false
@@ -12,10 +16,5 @@ cache:
   directories:
     - node_modules
 
-after_success:
-- npm run codecov
-
-addons:
-  chrome: stable
-
-dist: trusty
+script:
+  -  ng test --karma-config src/karma.conf.ci.js && ng build --prod
