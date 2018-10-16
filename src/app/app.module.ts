@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { AutocompleteModule } from '../../projects/autocomplete/src/public_api';
+import { WikipediaService } from './wiki.service';
 
 @NgModule({
   declarations: [
@@ -12,7 +13,7 @@ import { AutocompleteModule } from '../../projects/autocomplete/src/public_api';
     BrowserModule,
     AutocompleteModule.forRoot(),
   ],
-  providers: [],
+  providers: [WikipediaService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
