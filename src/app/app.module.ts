@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { AutocompleteModule } from '../../projects/autocomplete/src/public_api';
 import { WikipediaService } from './wiki.service';
-import { JsonpModule } from '@angular/http';
+import { HttpClientJsonpModule, HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -12,7 +12,8 @@ import { JsonpModule } from '@angular/http';
   ],
   imports: [
     BrowserModule,
-    JsonpModule,
+    HttpClientJsonpModule,
+    HttpClientModule,
     AutocompleteModule.forRoot(),
   ],
   providers: [WikipediaService],

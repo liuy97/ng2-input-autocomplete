@@ -2,12 +2,12 @@ import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 import { AutocompleteModule } from '../../projects/autocomplete/src/public_api';
 import { WikipediaService } from './wiki.service';
-import { JsonpModule } from '@angular/http';
+import { HttpClientJsonpModule, HttpClientModule } from '@angular/common/http';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [JsonpModule, AutocompleteModule.forRoot()],
+      imports: [HttpClientJsonpModule, HttpClientModule, AutocompleteModule.forRoot()],
       providers: [WikipediaService],
       declarations: [
         AppComponent

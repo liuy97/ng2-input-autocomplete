@@ -1,28 +1,18 @@
 import { Injectable } from '@angular/core';
-import { Jsonp, URLSearchParams } from '@angular/http';
 import { map } from "rxjs/operators";
+import { HttpClient } from '@angular/common/http';
+
 @Injectable()
 export class WikipediaService {
-  constructor(private jsonp: Jsonp) {}
+  constructor(private http: HttpClient) {}
 
   search(term: string) {
     const wikiUrl = 'https://en.wikipedia.org/w/api.php';
 
-    const params = new URLSearchParams();
-    params.set('search', term); // the user's search value
-    params.set('action', 'opensearch');
-    params.set('format', 'json');
-    params.set('callback', 'JSONP_CALLBACK');
+    const url = `${wikiUrl}?search=${term}&action=opensearch&format=json`;
 
-    // TODO: Add error handling
-    return this.jsonp
-      .get(wikiUrl, { search: params })
-      .pipe(map(response => response.json()[1] as string[]));
+    return this.http
+      .jsonp(url, 'callback')
+      .pipe(map(response => response[1] as string[]));
   }
 }
-
-/*
-Copyright 2016 Google Inc. All Rights Reserved.
-Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at http://angular.io/license
-*/
