@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { WikipediaService } from './wiki.service';
 
 @Component({
   selector: 'app-root',
@@ -7,7 +8,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ng2-input-autocomplete';
-  wikiItems: any[];
+  wikiItems: any[] = [];
   selectedItem: any = '';
   inputChanged: any = '';
 
@@ -21,11 +22,17 @@ export class AppComponent {
   ];
   config2: any = {'placeholder': 'test', 'sourceField': ['payload', 'label']};
 
+  constructor(private service: WikipediaService) {}
+
   onSelect(item: any) {
     this.selectedItem = item;
   }
 
   onInputChangedEvent(val: string) {
     this.inputChanged = val;
+  }
+
+  search (term: string) {
+    this.service.search(term).subscribe(e => this.wikiItems = e, error => console.log(error));
   }
 }

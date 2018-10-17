@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { AutocompleteModule } from '../../projects/autocomplete/src/public_api';
 import { WikipediaService } from './wiki.service';
+import { JsonpModule } from '@angular/http';
 
 @NgModule({
   declarations: [
@@ -11,6 +12,7 @@ import { WikipediaService } from './wiki.service';
   ],
   imports: [
     BrowserModule,
+    JsonpModule,
     AutocompleteModule.forRoot(),
   ],
   providers: [WikipediaService],
