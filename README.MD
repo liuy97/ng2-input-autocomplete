@@ -43,11 +43,6 @@ import { AutocompleteModule } from 'ng2-input-autocomplete';
 })
 export class AppModule { }
 ```
-add mapping in systemjs config 
-
-```typescript
-'ng2-input-autocomplete': 'node_modules/ng2-input-autocomplete/bundles/ng2-input-autocompleteModule.umd.js',
-```
 
 Once your library is imported, you can use its components and directives:
 
@@ -76,6 +71,19 @@ Two output events: **selectEvent** (when a item is selected) and **inputChangedE
       (selectEvent)="onSelect($event)">
   </div>
 ```
+
+in styles.css
+```css
+.test li.active {
+  width: 100%;
+  background-color: red!important;
+}
+
+.test li {
+  color: blue;
+}
+```
+
 ```typescript
 export class AppComponent  {
   selectedItem: any = '';
@@ -89,7 +97,7 @@ export class AppComponent  {
     {id: 5, payload: {label: 'c'}},
     {id: 6, payload: {label: 'vc'}}
   ];
-  config2: any = {'placeholder': 'test', 'sourceField': ['payload', 'label']};
+  config2: any = {'class': 'test', 'placeholder': 'test', 'sourceField': ['payload', 'label']};
 
   constructor(private service: WikipediaService) {}
 

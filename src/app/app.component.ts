@@ -20,7 +20,7 @@ export class AppComponent {
     {id: 5, payload: {label: 'c'}},
     {id: 6, payload: {label: 'vc'}}
   ];
-  config2: any = {'placeholder': 'test', 'sourceField': ['payload', 'label']};
+  config2: any = {'class': 'test', 'placeholder': 'test', 'sourceField': ['payload', 'label']};
 
   constructor(private service: WikipediaService) {}
 

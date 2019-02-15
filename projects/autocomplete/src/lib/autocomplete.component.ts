@@ -10,18 +10,14 @@ import {
   EventEmitter,
   HostListener,
   Input,
-  NgModule,
-  ModuleWithProviders,
   OnChanges,
   OnDestroy,
   OnInit,
   Output,
   SimpleChange,
-  ViewContainerRef
+  ViewContainerRef,
+  HostBinding
 } from '@angular/core';
-
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
 
 @Component({
   // tslint:disable-next-line
@@ -78,6 +74,7 @@ import { FormsModule } from '@angular/forms';
   ]
 })
 export class AutocompleteComponent implements OnInit, OnChanges {
+  @HostBinding('class') classList = 'autocomplete';
   @Input() items: any[];
   @Input() config: any;
   @Output() selectEvent: EventEmitter<any> = new EventEmitter<any>();
@@ -100,6 +97,9 @@ export class AutocompleteComponent implements OnInit, OnChanges {
   }
 
   ngOnInit() {
+    if (this.config && this.config.class) {
+      this.classList += ' ' + this.config.class;
+    }
     this.placeholder = 'autocomplete';
     this.inputElement = this.thisElement.querySelector(
       'input'
