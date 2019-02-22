@@ -49,6 +49,7 @@ Once your library is imported, you can use its components and directives:
 Three input elements: **config**, **items**, **ngModel**
 
 config supports two properties: **placeholder** and  **sourceField** which is used to search.
+Two optional properties: **class** for customized css style and **max** for the max number of items.
 
 Two output events: **selectEvent** (when a item is selected) and **inputChangedEvent** (when users input)
 
@@ -97,7 +98,7 @@ export class AppComponent  {
     {id: 5, payload: {label: 'c'}},
     {id: 6, payload: {label: 'vc'}}
   ];
-  config2: any = {'class': 'test', 'placeholder': 'test', 'sourceField': ['payload', 'label']};
+  config2: any = {'class': 'test', 'max': 2, 'placeholder': 'test', 'sourceField': ['payload', 'label']};
 
   constructor(private service: WikipediaService) {}
 

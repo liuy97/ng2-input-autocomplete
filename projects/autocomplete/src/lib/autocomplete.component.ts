@@ -23,7 +23,7 @@ import {
   // tslint:disable-next-line
   selector: 'ng2-input-autocomplete',
   template: `
-  <div class="autocomplete">
+  <div [ngClass]="classList">
     <input type="text"
       placeholder="{{placeholder}}"
       (blur)="showAutoComplete = false;"
@@ -74,7 +74,7 @@ import {
   ]
 })
 export class AutocompleteComponent implements OnInit, OnChanges {
-  @HostBinding('class') classList = 'autocomplete';
+  classList = 'autocomplete';
   @Input() items: any[];
   @Input() config: any;
   @Output() selectEvent: EventEmitter<any> = new EventEmitter<any>();
@@ -86,6 +86,7 @@ export class AutocompleteComponent implements OnInit, OnChanges {
   selectedIndex: number;
   showAutoComplete: boolean;
   placeholder: string;
+  maxLimit = 0;
   private sourceField: any;
   private thisElement: HTMLElement;
 
@@ -99,6 +100,9 @@ export class AutocompleteComponent implements OnInit, OnChanges {
   ngOnInit() {
     if (this.config && this.config.class) {
       this.classList += ' ' + this.config.class;
+    }
+    if (this.config && this.config.max > 0) {
+      this.maxLimit = this.config.max;
     }
     this.placeholder = 'autocomplete';
     this.inputElement = this.thisElement.querySelector(
@@ -159,6 +163,9 @@ export class AutocompleteComponent implements OnInit, OnChanges {
       this.candidates = this.items.filter(item => {
         return filterItem(item, field, search);
       });
+      if (this.maxLimit > 0) {
+        this.candidates = this.candidates.slice(0, this.maxLimit);
+      }
       this.buildLabels();
     }
   }
