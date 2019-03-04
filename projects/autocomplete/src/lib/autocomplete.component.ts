@@ -33,6 +33,7 @@ import {
     <ul *ngIf="showAutoComplete && candidates && candidates.length > 0">
       <li *ngFor="let candidate of candidates; let idx = index"
         [ngClass]="{ active: (idx === selectedIndex) }"
+        (keyup.enter)="onSelect(idx)"
         (mouseover)="selectedIndex = idx;"
         (mousedown)="onSelect(idx)">
         {{candiatesLabels[idx]}}
