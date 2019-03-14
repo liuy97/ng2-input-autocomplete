@@ -36,7 +36,7 @@ import {
         (keyup.enter)="onSelect(idx)"
         (mouseover)="selectedIndex = idx;"
         (mousedown)="onSelect(idx)">
-        {{candiatesLabels[idx]}}
+        {{candidatesLabels[idx]}}
       </li>
     </ul>
   </div>`,
@@ -83,7 +83,7 @@ export class AutocompleteComponent implements OnInit, OnChanges {
   inputElement: HTMLInputElement;
   value: string;
   candidates: any[];
-  candiatesLabels: any[];
+  candidatesLabels: any[];
   selectedIndex: number;
   showAutoComplete: boolean;
   placeholder: string;
@@ -153,7 +153,7 @@ export class AutocompleteComponent implements OnInit, OnChanges {
 
   onSelect(idx: number) {
     this.showAutoComplete = false;
-    this.value = this.candiatesLabels[idx];
+    this.value = this.candidatesLabels[idx];
     this.selectEvent.emit(this.candidates[idx]);
   }
 
@@ -202,7 +202,7 @@ export class AutocompleteComponent implements OnInit, OnChanges {
   private buildLabels() {
     const field = this.sourceField;
     const getFieldValue = this.getFieldValue;
-    this.candiatesLabels = this.candidates.map((e: any) =>
+    this.candidatesLabels = this.candidates.map((e: any) =>
       getFieldValue(e, field)
     );
   }
@@ -294,6 +294,9 @@ export class AutocompleteDirective implements OnInit, OnDestroy, OnChanges {
 
   hideAutocomplete = (event?: any): void => {
     if (!this.componentRef) {
+      return;
+    }
+    if (event && event.target && this.thisElement && event.target === this.thisElement.parentElement) {
       return;
     }
     if (
