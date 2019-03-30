@@ -33,7 +33,7 @@ import {
     <ul *ngIf="showAutoComplete && candidates && candidates.length > 0">
       <li *ngFor="let candidate of candidates; let idx = index"
         [ngClass]="{ active: (idx === selectedIndex) }"
-        (keyup.enter)="onSelect(idx)"
+        (keyup)="onKeyUpEvent($event, idx)"
         (mouseover)="selectedIndex = idx;"
         (mousedown)="onSelect(idx)">
         {{candidatesLabels[idx]}}
@@ -156,6 +156,12 @@ export class AutocompleteComponent implements OnInit, OnChanges {
     this.value = this.candidatesLabels[idx];
     this.selectEvent.emit(this.candidates[idx]);
   }
+
+  onKeyUpEvent(event: KeyboardEvent, idx: number): void {
+    if (event.keyCode === 13) {
+      this.onSelect(idx);
+    }
+ }
 
   filterItems(search: string) {
     const field = this.sourceField;
@@ -314,6 +320,7 @@ export class AutocompleteDirective implements OnInit, OnDestroy, OnChanges {
   onInputChanged = (val: string) => {
     this.inputElement.value = val;
     if (val !== this.ngModel) {
+      this.ngModel = val;
       this.ngModelChange.emit(val);
     }
     const component = this.componentRef.instance;
@@ -325,6 +332,7 @@ export class AutocompleteDirective implements OnInit, OnDestroy, OnChanges {
     const component = this.componentRef.instance;
     const val = component.value;
     if (val !== this.ngModel) {
+      this.ngModel = val;
       this.ngModelChange.emit(val);
     }
     this.selectEvent.emit(item);
@@ -368,6 +376,8 @@ export class AutocompleteDirective implements OnInit, OnDestroy, OnChanges {
         this.inputElement.nextSibling
       );
     }
+
+    this.inputElement.value = this.ngModel ? this.ngModel : '';
     component.value = this.inputElement.value;
     this.tabIndex = this.inputElement['tabIndex'];
     this.inputElement['tabIndex'] = -100;
