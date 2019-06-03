@@ -58,16 +58,16 @@ Two output events: **selectEvent** (when a item is selected) and **inputChangedE
 <h1>
   String
 </h1>
-<input ng2-input-autocomplete [items]=["a", "ab"]></input>
+<input input-autocomplete [items]=["a", "ab"]></input>
   <h2>Objects:</h2>
   <div>
-    <input ng2-input-autocomplete [config]="config2" [items]="items2"
+    <input input-autocomplete [config]="config2" [items]="items2"
       (inputChangedEvent)="onInputChangedEvent($event)"
       (selectEvent)="onSelect($event)">
   </div>
   <h2>Wiki:</h2>
   <div>
-    <input ng2-input-autocomplete [items]="wikiItems"
+    <input input-autocomplete [items]="wikiItems"
       (inputChangedEvent)="search($event)"
       (selectEvent)="onSelect($event)">
   </div>

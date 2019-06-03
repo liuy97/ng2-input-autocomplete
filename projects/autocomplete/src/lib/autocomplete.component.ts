@@ -243,7 +243,7 @@ export class AutocompleteComponent implements OnInit, OnChanges {
 
 @Directive({
   // tslint:disable-next-line
-  selector: '[ng2-input-autocomplete]'
+  selector: '[input-autocomplete]'
 })
 export class AutocompleteDirective implements OnInit, OnDestroy, OnChanges {
   @Input() config: any;
