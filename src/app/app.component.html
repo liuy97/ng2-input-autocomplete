@@ -5,11 +5,11 @@
   </h1>
 </div>
 <form autocomplete="off">
-  <input autocomplete [config]="config2" [items]="items2"
+  <input input-autocomplete [config]="config2" [items]="items2"
         (inputChangedEvent)="onInputChangedEvent($event)"
         (selectEvent)="onSelect($event)">
   <h2>Wiki:</h2>
   <div>
-    <input autocomplete [items]="wikiItems" (inputChangedEvent)="search($event)" (selectEvent)="onSelect($event)">
+    <input input-autocomplete [items]="wikiItems" (inputChangedEvent)="search($event)" (selectEvent)="onSelect($event)">
   </div>
 </form>
