@@ -17,6 +17,10 @@ To install this library, run:
 $ npm install ng2-input-autocomplete --save
 ```
 
+## breaking changes from V1.0.0
+
+Directive name has been changed from autocomplete to input-autocomplete
+
 ## Usage
 
 and then from your Angular `AppModule`:
