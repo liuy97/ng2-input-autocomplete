@@ -74,7 +74,7 @@ import {
      }`
   ]
 })
-export class AutocompleteComponent implements OnInit, OnChanges, OnDestroy {
+export class AutocompleteComponent implements OnInit, OnChanges {
   classList = 'autocomplete';
   @Input() items: any[];
   @Input() config: any;
@@ -99,7 +99,6 @@ export class AutocompleteComponent implements OnInit, OnChanges, OnDestroy {
   }
 
   ngOnInit() {
-    console.log('and here', this.value);
     if (this.config && this.config.class) {
       this.classList += ' ' + this.config.class;
     }
@@ -125,10 +124,6 @@ export class AutocompleteComponent implements OnInit, OnChanges, OnDestroy {
 
   ngOnChanges() {
     this.filterItems(this.value);
-  }
-
-  ngOnDestroy() {
-    this.value = '';
   }
 
   enterText(event: any) {
