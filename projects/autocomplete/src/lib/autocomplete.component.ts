@@ -266,9 +266,11 @@ export class AutocompleteDirective implements OnInit, OnDestroy, OnChanges {
   ) {
     this.thisElement = this.viewContainerRef.element.nativeElement;
     const input = this.getInputElement();
-    input.form.addEventListener('reset', () => {
-      this.reset = true;
-    });
+    if (input.form) {
+      input.form.addEventListener('reset', () => {
+        this.reset = true;
+      });
+    }
   }
 
   ngOnInit() {
