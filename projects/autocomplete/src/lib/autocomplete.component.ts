@@ -13,6 +13,7 @@ import {
   OnChanges,
   OnDestroy,
   OnInit,
+  AfterViewInit,
   Output,
   SimpleChange,
   ViewContainerRef,
@@ -245,7 +246,7 @@ export class AutocompleteComponent implements OnInit, OnChanges {
   // tslint:disable-next-line
   selector: '[input-autocomplete]'
 })
-export class AutocompleteDirective implements OnInit, OnDestroy, OnChanges {
+export class AutocompleteDirective implements OnInit, OnDestroy, OnChanges, AfterViewInit {
   @Input() config: any;
   @Input() items: any;
   @Input() ngModel: string;
@@ -265,12 +266,6 @@ export class AutocompleteDirective implements OnInit, OnDestroy, OnChanges {
     public viewContainerRef: ViewContainerRef
   ) {
     this.thisElement = this.viewContainerRef.element.nativeElement;
-    const input = this.getInputElement();
-    if (input.form) {
-      input.form.addEventListener('reset', () => {
-        this.reset = true;
-      });
-    }
   }
 
   ngOnInit() {
@@ -293,6 +288,15 @@ export class AutocompleteDirective implements OnInit, OnDestroy, OnChanges {
       const component = this.componentRef.instance;
       component.items = changes['items'].currentValue;
       component.filterItems(component.value);
+    }
+  }
+
+  ngAfterViewInit() {
+    const input = this.getInputElement();
+    if (input.form) {
+      input.form.addEventListener('reset', () => {
+        this.reset = true;
+      });
     }
   }
 
