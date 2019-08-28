@@ -74,7 +74,7 @@ import {
      }`
   ]
 })
-export class AutocompleteComponent implements OnInit, OnChanges {
+export class AutocompleteComponent implements OnInit, OnChanges, OnDestroy {
   classList = 'autocomplete';
   @Input() items: any[];
   @Input() config: any;
@@ -99,6 +99,7 @@ export class AutocompleteComponent implements OnInit, OnChanges {
   }
 
   ngOnInit() {
+    console.log('and here', this.value);
     if (this.config && this.config.class) {
       this.classList += ' ' + this.config.class;
     }
@@ -124,6 +125,10 @@ export class AutocompleteComponent implements OnInit, OnChanges {
 
   ngOnChanges() {
     this.filterItems(this.value);
+  }
+
+  ngOnDestroy() {
+    this.value = '';
   }
 
   enterText(event: any) {
@@ -258,12 +263,17 @@ export class AutocompleteDirective implements OnInit, OnDestroy, OnChanges {
   private autocompleteElement: HTMLElement;
   private inputElement: HTMLInputElement;
   private tabIndex: number;
+  private reset: boolean = false;
 
   constructor(
     private resolver: ComponentFactoryResolver,
     public viewContainerRef: ViewContainerRef
   ) {
     this.thisElement = this.viewContainerRef.element.nativeElement;
+    const input = this.getInputElement();
+    input.form.addEventListener('reset', () => {
+      this.reset = true;
+    });
   }
 
   ngOnInit() {
@@ -296,6 +306,18 @@ export class AutocompleteDirective implements OnInit, OnDestroy, OnChanges {
     if (event === this.thisElement) {
       this.createAutocomplete();
     }
+  }
+
+  getInputElement() {
+    let input = this.thisElement as HTMLInputElement;
+
+    if (this.thisElement.tagName !== 'INPUT' && this.autocompleteElement) {
+      input = this.thisElement.querySelector(
+        'input'
+      ) as HTMLInputElement;
+    }
+
+    return input;
   }
 
   hideAutocomplete = (event?: any): void => {
@@ -366,15 +388,17 @@ export class AutocompleteDirective implements OnInit, OnDestroy, OnChanges {
     component.inputChangedEvent.subscribe(this.onInputChanged);
     this.autocompleteElement = this.componentRef.location.nativeElement;
     this.autocompleteElement.style.display = 'none';
-    this.inputElement = this.thisElement as HTMLInputElement;
+    this.inputElement = this.getInputElement();
     if (this.thisElement.tagName !== 'INPUT' && this.autocompleteElement) {
-      this.inputElement = this.thisElement.querySelector(
-        'input'
-      ) as HTMLInputElement;
       this.inputElement.parentElement.insertBefore(
         this.autocompleteElement,
         this.inputElement.nextSibling
       );
+    }
+
+    if (this.reset) {
+      this.ngModel = '';
+      this.reset = false;
     }
 
     this.inputElement.value = this.ngModel ? this.ngModel : '';
