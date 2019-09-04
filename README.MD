@@ -120,6 +120,8 @@ export class AppComponent  {
 }
 ```
 
+Note: If you're using reactive forms pass the `FormControl` into the input for methods such as `setValue` or `reset` to work.
+
 ## Development
 
 ```bash
