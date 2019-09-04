@@ -120,7 +120,7 @@ export class AppComponent  {
 }
 ```
 
-Note: If you're using reactive forms pass the `FormControl` into the input for methods such as `setValue` or `reset` to work.
+**Note:** If you're using reactive forms, pass the `FormControl` into the input as a prop like `<input input-autocomplete [control]="formControl">` for methods such as `setValue` or `reset` to work.
 
 ## Development
 
