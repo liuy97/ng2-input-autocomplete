@@ -297,7 +297,6 @@ export class AutocompleteDirective implements OnInit, OnDestroy, OnChanges, Afte
     const input = this.getInputElement();
     if (this.control) {
       this.control.valueChanges.subscribe(() => {
-        console.log('value changed');
         this.reset = true;
       });
     }
