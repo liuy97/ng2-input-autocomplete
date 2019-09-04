@@ -19,6 +19,7 @@ import {
   ViewContainerRef,
   HostBinding
 } from '@angular/core';
+import {FormControl} from '@angular/forms';
 
 @Component({
   // tslint:disable-next-line
@@ -250,6 +251,7 @@ export class AutocompleteDirective implements OnInit, OnDestroy, OnChanges, Afte
   @Input() config: any;
   @Input() items: any;
   @Input() ngModel: string;
+  @Input() control: FormControl;
   @Output() ngModelChange = new EventEmitter();
   @Output() inputChangedEvent = new EventEmitter();
   @Output() selectEvent = new EventEmitter();
@@ -259,7 +261,7 @@ export class AutocompleteDirective implements OnInit, OnDestroy, OnChanges, Afte
   private autocompleteElement: HTMLElement;
   private inputElement: HTMLInputElement;
   private tabIndex: number;
-  private reset: boolean = false;
+  private reset = false;
 
   constructor(
     private resolver: ComponentFactoryResolver,
@@ -293,6 +295,12 @@ export class AutocompleteDirective implements OnInit, OnDestroy, OnChanges, Afte
 
   ngAfterViewInit() {
     const input = this.getInputElement();
+    if (this.control) {
+      this.control.valueChanges.subscribe(() => {
+        console.log('value changed');
+        this.reset = true;
+      });
+    }
     if (input.form) {
       input.form.addEventListener('reset', () => {
         this.reset = true;
